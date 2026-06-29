@@ -1,6 +1,8 @@
 noarch_platforms:
   - linux_64
-  - win_64
+  # Windows is currently broken due to uvicorn-worker dependency.
+  # Reenable once the problem is resolved.
+  #- win_64
 github:
   branch_name: main
   tooling_branch_name: main

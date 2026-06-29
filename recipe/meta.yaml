@@ -18,16 +18,16 @@ build:
     - functions-framework-python = functions_framework._cli:_cli
     - functions_framework_python = functions_framework._cli:_cli
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
-  skip: true  # [win]
+  number: 1
+  noarch: python
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}.*
     - setuptools >=61.0.0
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - flask >=2.0,<4.0
     - click >=7.0,<9.0
     - watchdog >=1.0.0
@@ -54,7 +54,7 @@ test:
     - functions-framework-python --help
     - functions_framework_python --help
   requires:
-    - python
+    - python {{ python_min }}.*
     - pip
 
 about:
